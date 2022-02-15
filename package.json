@@ -1,0 +1,19 @@
+{
+  "name": "rmgen",
+  "version": "1.0.0",
+  "description": "nodejs readme generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelpalumbo/rmgen.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michaelpalumbo/rmgen/issues"
+  },
+  "homepage": "https://github.com/michaelpalumbo/rmgen#readme"
+}
