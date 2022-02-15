@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/michaelpalumbo/rmgen/issues"
   },
-  "homepage": "https://github.com/michaelpalumbo/rmgen#readme"
+  "homepage": "https://github.com/michaelpalumbo/rmgen#readme",
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  }
 }
