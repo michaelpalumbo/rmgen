@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/michaelpalumbo/rmgen#readme",
   "dependencies": {
-    "inquirer": "^8.2.0"
+    "@octokit/rest": "^18.12.0",
+    "fetch": "^1.1.0",
+    "inquirer": "^8.2.0",
+    "node-fetch": "^2.6.7"
   }
 }
