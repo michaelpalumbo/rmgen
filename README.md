@@ -1,0 +1,2 @@
+# rmgen
+nodejs readme generator
