@@ -18,3 +18,4 @@ npm start
 
 It will prompt you for details about your program. Once you have entered details to each of the questions, a readme.md file will be saved at ~/output in this directory. 
 
+Video walkthrough: https://www.dropbox.com/s/nlwvva30u31qoww/bc_rmgen_howto.mov?dl=0
