@@ -1,38 +1,20 @@
+# Readme Generator
 
-![](https://img.shields.io/badge/license-AGPL_3.0-blue)    
-# asdfadsf
+## Description
+A readme generator for rapidly creating a professional Readme.md file for a new software project
 
-## Table of Contents
-[Description](#description)
+## Installation 
+Clone this repository, then install using: 
 
-[Installation]()
-[Usage]()
-[License]()
-[Contributing]()
-[Tests]()
-[Questions]()
+```shell
+npm install
+```
 
-### Description
-adsf
+## Usage
+To run this program:
+```shell
+npm start
+```
 
-### Installation
-adsf
+It will prompt you for details about your program. Once you have entered details to each of the questions, a readme.md file will be saved at ~/output in this directory. 
 
-### Usage
-adsf
-
-### License
-[GNU Affero General Public License v3.0](https://api.github.com/licenses/agpl-3.0)
-
-### Contributing
-Access this repository at https://github.com/adsf/asdfadsf
-asdf
-
-### Tests
-undefined
-
-### Questions
-If you have questions about the project, please contact me at adsf
-
-
-    

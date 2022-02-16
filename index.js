@@ -132,7 +132,7 @@ fetch("https://api.github.com/licenses")
         answers.spdx_id = licenseNames[license].replace('-', '_')
         answers.licenseURL = licenseURLs[license]
         // create the readme.md
-        fs.writeFile('./README.md', makeReadme(answers), err => {
+        fs.writeFile('./output/README.md', makeReadme(answers), err => {
             if (err) throw new Error(err);
             console.log('README.md completed');
         });

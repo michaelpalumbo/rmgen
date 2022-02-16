@@ -21,8 +21,6 @@ module.exports = userResponses => {
 
 [Contributing](#contributing)
 
-[Tests](#tests)
-
 [Questions](#questions)
 
 ### Description
@@ -40,9 +38,6 @@ ${usage}
 ### Contributing
 Access this repository at https://github.com/${username}/${title}
 ${contributing}
-
-### Tests
-${tests}
 
 ### Questions
 [GitHub Profile](https://github.com/${username})
