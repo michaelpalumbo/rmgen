@@ -3,19 +3,27 @@
 // export function to generate entire page
 module.exports = userResponses => {
     // get the user responses from the provided object
-    const { title, description, installation, usage, license, contributing, tests, username, email } = userResponses;
+    const { title, description, installation, usage, license, licenseURL, contributing, tests, username, email, spdx_id } = userResponses;
         
     return `
+![](https://img.shields.io/badge/license-${spdx_id}-blue)    
 # ${title}
 
 ## Table of Contents
-1. Description
-2. Installation
-3. Usage
-4. License
-5. Contributing
-6. Tests
-7. Questions
+
+[Description](#description)
+
+[Installation](#installation)
+
+[Usage](#usage)
+
+[License](#license)
+
+[Contributing](#contributing)
+
+[Tests](#tests)
+
+[Questions](#questions)
 
 ### Description
 ${description}
@@ -27,7 +35,7 @@ ${installation}
 ${usage}
 
 ### License
-${license}
+[${license}](${licenseURL})
 
 ### Contributing
 Access this repository at https://github.com/${username}/${title}
@@ -37,6 +45,8 @@ ${contributing}
 ${tests}
 
 ### Questions
+[GitHub Profile](https://github.com/${username})
+
 If you have questions about the project, please contact me at ${email}
 
 

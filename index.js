@@ -4,7 +4,7 @@ const makeReadme = require('./src/readme-generator.js')
 const contents = {}
 const inquirer = require('inquirer');
 const fetch = require('node-fetch');
-
+// prompt user for their software project details
 const promptUser = (licenses) => {
     return inquirer.prompt([
     {
@@ -28,7 +28,7 @@ const promptUser = (licenses) => {
             if (desc) {
               return true;
             } else {
-              console.log('Error: Missing a title for your project');
+              console.log('Error: Missing project description');
               return false;
             }
         }
@@ -49,18 +49,18 @@ const promptUser = (licenses) => {
     {
         type: 'input',
         name: 'usage',
-        message: 'describe how to use your project',
+        message: 'Describe how to use your project',
         validate: use => {
             if (use) {
               return true;
             } else {
-              console.log('Error: Missing installation instructions');
+              console.log('Error: Missing usage instructions');
               return false;
             }
         }
     },
     {
-        type: 'checkbox',
+        type: 'list',
         message: 'Choose a License',
         name: 'license',
         choices: licenses
@@ -93,7 +93,7 @@ const promptUser = (licenses) => {
     },
     {
         type: 'input',
-        name: 'questions',
+        name: 'username',
         message: 'What is your github username?',
         validate: username => {
             if (username) {
@@ -108,8 +108,11 @@ const promptUser = (licenses) => {
   ])
 
 }
+// objects to store software license data fetched from GitHub API
 let licenseNames = {}
 let licenses = []
+let licenseURLs = {}
+// get licenses 
 fetch("https://api.github.com/licenses")
     .then(res => res.text())
     .then(text => {
@@ -117,22 +120,22 @@ fetch("https://api.github.com/licenses")
         
         // iterate and create an array of choices for the licenses option
         for(i=0;i<res.length;i++){
-            licenses.push({name: res[i].name})
+            licenses.push(res[i].name)
             licenseNames[res[i].name] = res[i].spdx_id
+            licenseURLs[res[i].name] = res[i].url
         }
-        // console.log(licenses)
     })
-    .then(promptUser(licenses))
-    .then(answers => {
-
-        console.log('me;', answers)
-
+    // prompt the user for details about their software project, passing license options
+    .then(promptUser(licenses)
+    .then(answers => {   
+        let license =  answers.license
+        answers.spdx_id = licenseNames[license].replace('-', '_')
+        answers.licenseURL = licenseURLs[license]
+        // create the readme.md
         fs.writeFile('./README.md', makeReadme(answers), err => {
             if (err) throw new Error(err);
-        
-            console.log('Portfolio complete! Check out index.html to see the output!');
+            console.log('README.md completed');
         });
-
     })
     .catch((error) => {
         if (error.isTtyError) {
@@ -140,12 +143,6 @@ fetch("https://api.github.com/licenses")
         } else {
         // Something else went wrong
         }
-    });
-
-
-
-    // promptUser()
-    // .then(promptProject)
-    // .then(portfolioData => {
-    //   return generatePage(portfolioData);
-    // })
+    }) 
+)
+    
